@@ -26,7 +26,7 @@ public class SistemaCompanhia {
         String opcao = "";
 
         while(!opcao.equals("5")){
-            System.out.println("------------ SISTEMA DE COMPANHIA ------------");
+            System.out.println("\n------------ SISTEMA DE COMPANHIA ------------");
             System.out.println("[1] Cadastrar Voo");
             System.out.println("[2] Listar Voo");
             System.out.println("[3] Listar Passageiro de Voo");
@@ -74,7 +74,13 @@ public class SistemaCompanhia {
             voo.setNumAssentos(Integer.parseInt(this.reader.readLine()));
 
             for (int i = 0; i < 1000; i++) {
-                System.out.println("------------ PASSAGEIROS ------------");
+                System.out.println("\n------------ PASSAGEIROS ------------");
+                
+                if (voo.getNumAssentosOcupados() >= voo.getNumAssentos(0)) {
+                    System.out.println("Não é possível adicionar mais passageiros. Assentos esgotados.\n");
+                    break;
+                }
+                
                 System.out.println("Insira o nome do passageiro:(Deixe vazio para continuar)");
                 String nomePassageiro = this.reader.readLine();
                 if (nomePassageiro.equals("")) {
@@ -105,7 +111,7 @@ public class SistemaCompanhia {
     }
 
     public void listarVoo() throws Exception{
-        System.out.println("------------ VOO'S CADASTRADOS ------------");
+        System.out.println("\n------------ VOO'S CADASTRADOS ------------");
 
         for(int i = 0; i < this.c1.getQtVoo(); i++){
 			String linha = "Numero de Voo:" + this.c1.getVoo(i).getNumVoo() + "\n";
@@ -125,7 +131,7 @@ public class SistemaCompanhia {
 
     public void consulPassageiro(){
 		try{
-			System.out.println("------------ PASSAGEIROS DO VOO ------------");
+			System.out.println("\n------------ PASSAGEIROS DO VOO ------------");
 			System.out.println("Informe o numero do Voo: \n");
 			int numVoo = Integer.parseInt(this.reader.readLine());
 			boolean achou = false;
@@ -162,7 +168,7 @@ public class SistemaCompanhia {
 		}
 	}
     public void consulAssentos() throws NumberFormatException, IOException{
-        System.out.println("------------ ASSENTOS DO VOO ------------");
+        System.out.println("\n------------ ASSENTOS DO VOO ------------");
         System.out.println("Informe o numero do Voo: ");
         int numVoo = Integer.parseInt(this.reader.readLine());
         for(int i = 0; i < this.c1.getQtVoo(); i++){
