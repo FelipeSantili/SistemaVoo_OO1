@@ -172,17 +172,13 @@ public class SistemaCompanhia {
                     String linha = "Assento totais: " + v.getNumAssentos(pos) + "\n";
                     System.out.print(linha);
 
-                    Voo v2 = this.c1.getVoo(i);
-                    if (v2.getNumVoo() == numVoo) {
-                        int pos2 = 0;
-                        String linha2 = "Assento totais: " + v2.getNumAssentos(pos2) + "\n";
-                        linha2 = "Assentos ocupados: " + v2.getNumAssentosOcupados() + "\n";
-                        System.out.print(linha2);
+                    String linha2 = "Assento totais: " + v.getNumAssentos(pos) + "\n";
+                    linha2 = "Assentos ocupados: " + v.getNumAssentosOcupados() + "\n";
+                    System.out.print(linha2);
 
-                        String linha3 = "Assentos restantes: " + v2.assentosRestantes() + "\n";
-                        System.out.print(linha3);
-                        break;
-                    }
+                    String linha3 = "Assentos restantes: " + v.assentosRestantes() + "\n";
+                    System.out.print(linha3);
+                    break;
             
             }else {
                 System.out.println("Voo nao encontrado\n");
